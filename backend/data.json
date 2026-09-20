@@ -1,0 +1,40 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "name": "bec",
+      "nrp": "asdfsd",
+      "position": 1
+    },
+    {
+      "id": 2,
+      "name": "Rian",
+      "nrp": "NRP002",
+      "position": 2
+    },
+    {
+      "id": 3,
+      "name": "Joko",
+      "nrp": "NRP003",
+      "position": 3
+    },
+    {
+      "id": 4,
+      "name": "Andi",
+      "nrp": "NRP004",
+      "position": 4
+    },
+    {
+      "id": 5,
+      "name": "Budi",
+      "nrp": "NRP005",
+      "position": 5
+    },
+    {
+      "id": 6,
+      "name": "Asep",
+      "nrp": "NRP006",
+      "position": 6
+    }
+  ]
+}

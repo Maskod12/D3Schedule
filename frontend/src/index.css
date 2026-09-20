@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@media (max-width: 1023px) and (orientation: landscape) {
+  .schedule-name {
+    width: 110px;
+    min-width: 110px;
+  }
+
+  .schedule-nrp {
+    width: 70px;
+    min-width: 70px;
+    left: 110px;
+  }
+
+  .schedule-date {
+    width: 28px;
+    min-width: 28px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .schedule-wrapper {
+  zoom: 0.60;
+  width: 149%;
+}
+
+ .schedule-header {
+  margin-bottom: 4px;
+}
+
+.schedule-month {
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+.schedule-footer {
+  margin-top: 4px;
+  padding-bottom: 2px;
+}
+
+.month-navigation {
+  justify-content: center;
+  gap: 80px;
+  margin-top: 4px;
+}
+
+}
