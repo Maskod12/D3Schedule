@@ -1,16 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
+const path = require("path");
 
 const app = express();
 const PORT = 5000;
+const DATA_FILE = path.join(__dirname, "data.json");
 
 app.use(cors());
 app.use(express.json());
 
 // GET semua anggota
 app.get("/api/members", (req, res) => {
-  const data = fs.readFileSync("./data.json", "utf-8");
+  const data = fs.readFileSync(DATA_FILE, "utf-8");
   const members = JSON.parse(data);
 
   res.json(members);
@@ -38,7 +40,7 @@ app.put("/api/members/:id", (req, res) => {
   const id = Number(req.params.id);
   const { name, nrp } = req.body;
 
-  const data = fs.readFileSync("./data.json", "utf-8");
+  const data = fs.readFileSync(DATA_FILE, "utf-8");
   const members = JSON.parse(data);
 
   const member = members.members.find((member) => member.id === id);
@@ -53,7 +55,7 @@ app.put("/api/members/:id", (req, res) => {
   member.nrp = nrp;
 
   fs.writeFileSync(
-    "./data.json",
+    DATA_FILE,
     JSON.stringify(members, null, 2)
   );
 
@@ -70,16 +72,6 @@ app.get("/", (req, res) => {
   });
 });
 
-
-
-app.get("/", (req, res) => {
-  res.json({
-    message: "Shift Schedule API is running!",
-  });
-});
-
-
-
-app.listen(PORT,"0.0.0.0", () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
