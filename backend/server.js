@@ -4,8 +4,9 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
-const PORT = 5000;
-const DATA_FILE = path.join(__dirname, "data.json");
+const PORT = process.env.PORT || 5000;
+const DATA_DIR = process.env.DATA_DIR || __dirname;
+const DATA_FILE = path.join(DATA_DIR, "data.json");
 
 app.use(cors());
 app.use(express.json());
@@ -31,7 +32,7 @@ app.post("/api/login", (req, res) => {
 
   res.status(401).json({
     success: false,
-    message: "Username atau password salah paakk!🤣"
+    message: "Username atau password salah paakk!🤣",
   });
 });
 
@@ -54,10 +55,7 @@ app.put("/api/members/:id", (req, res) => {
   member.name = name;
   member.nrp = nrp;
 
-  fs.writeFileSync(
-    DATA_FILE,
-    JSON.stringify(members, null, 2)
-  );
+  fs.writeFileSync(DATA_FILE, JSON.stringify(members, null, 2));
 
   res.json({
     message: "Data member berhasil diubah",
